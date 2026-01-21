@@ -1,6 +1,5 @@
 {
-      "homepage": "https://neyoolo.github.io/New-folder/",
-      "name": "neyoola - portfolio)",
+      "name": "neyoola - portfolio",
       "version": "0.1.0",
       "private": true,
       "dependencies": {
