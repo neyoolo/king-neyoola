@@ -4,7 +4,7 @@
   import path from 'path';
 
   export default defineConfig({
-    base: '/New-folder/',
+    base: '/king-neyoola/',
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
