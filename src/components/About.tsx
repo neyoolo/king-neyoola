@@ -1,7 +1,16 @@
-import React, { useState, useRef } from 'react';
-import { motion, useMotionValue, useSpring } from 'motion/react';
-import { Card, CardContent } from './ui/card';
-import { Code, Smartphone, Database, Palette, Zap, Cpu, Globe, Rocket } from 'lucide-react';
+import React, { useState, useRef } from "react";
+import { motion, useMotionValue, useSpring } from "motion/react";
+import { Card, CardContent } from "./ui/card";
+import {
+  Code,
+  Smartphone,
+  Database,
+  Palette,
+  Zap,
+  Cpu,
+  Globe,
+  Rocket,
+} from "lucide-react";
 
 const About = () => {
   const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
@@ -9,23 +18,60 @@ const About = () => {
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 300, damping: 30 });
   const springY = useSpring(mouseY, { stiffness: 300, damping: 30 });
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const skills = [
-    { name: 'Frontend Development', level: 60, icon: Code, color: '#dc2626', tech: ['React', 'Vue', 'Angular', 'TypeScript'] },
-    { name: 'Mobile Development', level: 40, icon: Smartphone, color: '#ef4444', tech: ['React Native', 'Flutter', '', ''] },
-    { name: 'Backend Development', level: 85, icon: Database, color: '#f87171', tech: ['Node.js', 'Express js', '', ''] },
-    { name: 'UI/UX Design', level: 50, icon: Palette, color: '#fca5a5', tech: ['Figma', 'Adobe XD', '', ''] },
-    { name: 'DevOps & Cloud', level: 82, icon: Zap, color: '#dc2626', tech: ['AWS', 'Docker', '', ''] },
+    {
+      name: "Frontend Development",
+      level: 60,
+      icon: Code,
+      color: "#dc2626",
+      tech: ["React", "Vue", "Angular", "TypeScript"],
+    },
+    {
+      name: "Mobile Development",
+      level: 40,
+      icon: Smartphone,
+      color: "#ef4444",
+      tech: ["React Native", "Flutter", "", ""],
+    },
+    {
+      name: "Backend Development",
+      level: 85,
+      icon: Database,
+      color: "#f87171",
+      tech: ["Node.js", "Express js", "", ""],
+    },
+    {
+      name: "UI/UX Design",
+      level: 50,
+      icon: Palette,
+      color: "#fca5a5",
+      tech: ["Figma", "Adobe XD", "", ""],
+    },
+    {
+      name: "DevOps & Cloud",
+      level: 82,
+      icon: Zap,
+      color: "#dc2626",
+      tech: ["AWS", "Docker", "", ""],
+    },
     // { name: 'AI & Machine Learning', level: 75, icon: Cpu, color: '#ef4444', tech: ['TensorFlow', 'PyTorch', 'OpenAI', 'Hugging Face'] },
     // { name: 'Blockchain', level: 70, icon: Globe, color: '#f87171', tech: ['Solidity', 'Web3.js', 'Ethereum', 'Smart Contracts'] },
-    { name: 'Performance Optimization', level: 90, icon: Rocket, color: '#fca5a5', tech: ['Web Vitals', 'Lighthouse', 'Bundle Analysis', 'CDN'] },
+    {
+      name: "Performance Optimization",
+      level: 90,
+      icon: Rocket,
+      color: "#fca5a5",
+      tech: ["Web Vitals", "Lighthouse", "Bundle Analysis", "CDN"],
+    },
   ];
 
   const stats = [
-    { label: 'Projects Completed', value: '15+', icon: '🚀' },
-    { label: 'Years Experience', value: '2+', icon: '⚡' },
-    { label: 'Happy Clients', value: '5+', icon: '👽' },
-    { label: 'Lines of Code', value: '50K+', icon: '🔥' },
+    { label: "Projects Completed", value: "15+", icon: "🚀" },
+    { label: "Years Experience", value: "2+", icon: "⚡" },
+    { label: "Happy Clients", value: "5+", icon: "👽" },
+    { label: "Lines of Code", value: "50K+", icon: "🔥" },
   ];
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -35,12 +81,15 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-32 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+    <section
+      id="about"
+      className="py-32 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden"
+    >
       {/* Complex Background Elements */}
       <div className="absolute inset-0">
         {/* Animated Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(220,38,38,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(220,38,38,0.1)_1px,transparent_1px)] bg-[size:100px_100px] opacity-30" />
-        
+
         {/* Floating Plasma Effects */}
         {[...Array(20)].map((_, i) => (
           <motion.div
@@ -70,15 +119,27 @@ const About = () => {
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%" className="absolute inset-0">
             <defs>
-              <pattern id="hexagons" x="0" y="0" width="100" height="86.6" patternUnits="userSpaceOnUse">
-                <polygon points="50,1 87,25 87,75 50,99 13,75 13,25" fill="none" stroke="#dc2626" strokeWidth="1"/>
+              <pattern
+                id="hexagons"
+                x="0"
+                y="0"
+                width="100"
+                height="86.6"
+                patternUnits="userSpaceOnUse"
+              >
+                <polygon
+                  points="50,1 87,25 87,75 50,99 13,75 13,25"
+                  fill="none"
+                  stroke="#dc2626"
+                  strokeWidth="1"
+                />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#hexagons)" />
           </svg>
         </div>
       </div>
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -87,10 +148,10 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <motion.h2 
+          <motion.h2
             className="text-7xl mb-8 bg-gradient-to-r from-white via-red-300 to-red-500 bg-clip-text text-transparent"
-            animate={{ 
-              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
             transition={{ duration: 5, repeat: Infinity }}
           >
@@ -105,9 +166,9 @@ const About = () => {
             />
           </div>
           <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            I'm a digital architect who transforms ideas into reality through code. 
-            With expertise spanning multiple dimensions of technology, I create solutions 
-            that bridge the impossible with the inevitable.
+            I'm a digital architect who transforms ideas into reality through
+            code. With expertise spanning multiple dimensions of technology, I
+            create solutions that bridge the impossible with the inevitable.
           </p>
         </motion.div>
 
@@ -128,14 +189,20 @@ const About = () => {
               <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-red-600/40 hover:border-red-400 transition-all duration-500 backdrop-blur-sm overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <CardContent className="p-8 text-center relative z-10">
-                  <motion.div 
+                  <motion.div
                     className="text-4xl mb-4"
                     animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
+                    transition={{
+                      duration: 10,
+                      repeat: Infinity,
+                      delay: index * 0.5,
+                    }}
                   >
                     {stat.icon}
                   </motion.div>
-                  <div className="text-4xl mb-2 text-red-500 font-mono">{stat.value}</div>
+                  <div className="text-4xl mb-2 text-red-500 font-mono">
+                    {stat.value}
+                  </div>
                   <div className="text-gray-300">{stat.label}</div>
                 </CardContent>
               </Card>
@@ -154,11 +221,12 @@ const About = () => {
           >
             <h3 className="text-5xl mb-8 text-white">Neural Network</h3>
             <p className="text-xl text-gray-300 mb-12 leading-relaxed">
-              My expertise forms an interconnected web of technologies, each skill amplifying 
-              the others to create solutions that transcend traditional boundaries. Hover over 
-              each node to explore the depths of my capabilities.
+              My expertise forms an interconnected web of technologies, each
+              skill amplifying the others to create solutions that transcend
+              traditional boundaries. Hover over each node to explore the depths
+              of my capabilities.
             </p>
-            
+
             <div className="space-y-8">
               {hoveredSkill !== null && (
                 <motion.div
@@ -166,7 +234,9 @@ const About = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="bg-gradient-to-r from-red-600/20 to-red-800/20 rounded-2xl p-8 border border-red-600/30 backdrop-blur-sm"
                 >
-                  <h4 className="text-2xl mb-4 text-red-400">{skills[hoveredSkill].name}</h4>
+                  <h4 className="text-2xl mb-4 text-red-400">
+                    {skills[hoveredSkill].name}
+                  </h4>
                   <div className="flex flex-wrap gap-3 mb-6">
                     {skills[hoveredSkill].tech.map((tech) => (
                       <span
@@ -187,7 +257,9 @@ const About = () => {
                         transition={{ duration: 1 }}
                       />
                     </div>
-                    <span className="text-red-500 font-mono">{skills[hoveredSkill].level}%</span>
+                    <span className="text-red-500 font-mono">
+                      {skills[hoveredSkill].level}%
+                    </span>
                   </div>
                 </motion.div>
               )}
@@ -237,12 +309,12 @@ const About = () => {
                   {/* Connection Line */}
                   <svg
                     className="absolute inset-0 pointer-events-none"
-                    style={{ 
-                      width: Math.sqrt(x * x + y * y) + 100, 
+                    style={{
+                      width: Math.sqrt(x * x + y * y) + 100,
                       height: 2,
                       left: -Math.sqrt(x * x + y * y) / 2 - 50,
                       top: -1,
-                      transform: `rotate(${Math.atan2(-y, -x) * 180 / Math.PI}deg)`,
+                      transform: `rotate(${(Math.atan2(-y, -x) * 180) / Math.PI}deg)`,
                     }}
                   >
                     <motion.line
@@ -270,23 +342,39 @@ const About = () => {
                   <motion.div
                     className="w-20 h-20 relative cursor-pointer"
                     whileHover={{ scale: 1.3 }}
-                    onHoverStart={() => setHoveredSkill(index)}
-                    onHoverEnd={() => setHoveredSkill(null)}
+                    onHoverStart={() => {
+                      if (hoverTimeoutRef.current) {
+                        clearTimeout(hoverTimeoutRef.current);
+                      }
+                      setHoveredSkill(index);
+                    }}
+                    onHoverEnd={() => {
+                      hoverTimeoutRef.current = setTimeout(() => {
+                        setHoveredSkill(null);
+                      }, 1500);
+                    }}
                     animate={{
                       rotate: [0, 360],
                     }}
                     transition={{
-                      rotate: { duration: 30, repeat: Infinity, ease: "linear" },
+                      rotate: {
+                        duration: 30,
+                        repeat: Infinity,
+                        ease: "linear",
+                      },
                     }}
                   >
                     {/* Hexagon Background */}
-                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                    <svg
+                      className="absolute inset-0 w-full h-full"
+                      viewBox="0 0 100 100"
+                    >
                       <polygon
                         points="50,5 85,25 85,75 50,95 15,75 15,25"
                         fill={`url(#hexGradient${index})`}
                         stroke={skill.color}
                         strokeWidth="2"
-                        className={hoveredSkill === index ? 'glow-effect' : ''}
+                        className={hoveredSkill === index ? "glow-effect" : ""}
                       />
                       <defs>
                         <linearGradient id={`hexGradient${index}`}>
@@ -298,19 +386,30 @@ const About = () => {
 
                     {/* Icon */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <Icon 
-                        size={24} 
+                      <Icon
+                        size={24}
                         className="text-white z-10"
-                        style={{ color: hoveredSkill === index ? skill.color : 'white' }}
+                        style={{
+                          color: hoveredSkill === index ? skill.color : "white",
+                        }}
                       />
                     </div>
 
                     {/* Orbit Ring */}
                     <motion.div
                       className="absolute inset-0 border border-red-600/30 rounded-full"
-                      style={{ width: '120%', height: '120%', left: '-10%', top: '-10%' }}
+                      style={{
+                        width: "120%",
+                        height: "120%",
+                        left: "-10%",
+                        top: "-10%",
+                      }}
                       animate={{ rotate: [0, -360] }}
-                      transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                      transition={{
+                        duration: 15,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
                     />
                   </motion.div>
 
