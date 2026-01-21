@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "motion/react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
@@ -33,7 +33,7 @@ const Projects = () => {
         "java scrpit",
         "tailwind css",
         "",
-        "",
+        "typescript",
         "weather api",
       ],
       liveUrl: "https://neyoolo.github.io/srco/",
@@ -49,7 +49,7 @@ const Projects = () => {
       description:
         "A responsive portfolio website showcasing my projects and skills.",
       image:
-        "/images/pic.PNG",
+        "/images/pic 1.PNG",
       category: "web",
       technologies: [
         "javascript",
@@ -57,7 +57,7 @@ const Projects = () => {
         "html",
         "tailwind css",
         " motion.js",
-        "",
+        " typescript",
       ],
       liveUrl: "#",
       githubUrl: "#",
@@ -78,7 +78,7 @@ const Projects = () => {
         "java script",
         "html",
         "tailwindcss",
-        "",
+        "typescript",
         "",
         "",
       ],
@@ -141,6 +141,7 @@ const Projects = () => {
     const y = useMotionValue(0);
     const rotateX = useTransform(y, [-100, 100], [30, -30]);
     const rotateY = useTransform(x, [-100, 100], [-30, 30]);
+    const parallaxTransform = useMotionTemplate`translateX(${rotateY}px) translateY(${rotateX}px) scale(1.1)`;
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
       if (!ref.current) return;
@@ -202,11 +203,7 @@ const Projects = () => {
             <div className="relative h-64 overflow-hidden">
               <motion.div
                 style={{
-                  transform: useTransform(
-                    [rotateX, rotateY],
-                    ([rX, rY]) =>
-                      `translateX(${rY * 0.1}px) translateY(${rX * 0.1}px) scale(1.1)`,
-                  ),
+                  transform: parallaxTransform,
                 }}
                 className="absolute inset-0"
               >
@@ -531,7 +528,7 @@ const Projects = () => {
       </div>
 
       {/* CSS for additional animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes scan {
           0% {
             transform: translateY(-100%);
