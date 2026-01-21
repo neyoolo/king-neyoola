@@ -1,4 +1,7 @@
 import React, { useState, useRef } from "react";
+import weatherAppImg from "../assets/weather-app.png";
+import pic1Img from "../assets/pic-1.png";
+import todoTaskImg from "../assets/todo-task.png";
 import {
   motion,
   useMotionValue,
@@ -32,7 +35,7 @@ const Projects = () => {
       subtitle: "A WEATHER APP",
       description:
         '"Get instant, accurate weather for your exact location with our intuitive weather app, your essential tool for daily planning and safety. See current temperature, hourly forecasts, and extended outlooks, plus crucial details like wind speed, UV index, and air quality.',
-      image: "./build/assets/images/weather app.PNG",
+      image: weatherAppImg,
       category: "web",
       technologies: [
         "html",
@@ -54,7 +57,7 @@ const Projects = () => {
       subtitle: "My portfolio website",
       description:
         "A responsive portfolio website showcasing my projects and skills.",
-      image: "./build/assets/images/pic 1.PNG",
+      image: pic1Img,
       category: "web",
       technologies: [
         "javascript",
@@ -76,16 +79,9 @@ const Projects = () => {
       subtitle: "my todo list",
       description:
         "A simple and efficient todo list application with drag-and-drop functionality.",
-      image: "./build/assets/images/todo task.PNG",
+      image: todoTaskImg,
       category: "web",
-      technologies: [
-        "javascript",
-        "html",
-        "tailwindcss",
-        "typescript",
-        "",
-        "",
-      ],
+      technologies: ["javascript", "html", "tailwindcss", "typescript", "", ""],
       liveUrl: "https://neyoolo.github.io/my-todo-list/",
       githubUrl: "#",
       stats: { views: "", likes: "", stars: "" },
