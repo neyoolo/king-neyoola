@@ -1,5 +1,11 @@
 import React, { useState, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "motion/react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  useMotionTemplate,
+} from "motion/react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
@@ -26,7 +32,7 @@ const Projects = () => {
       subtitle: "A WEATHER APP",
       description:
         '"Get instant, accurate weather for your exact location with our intuitive weather app, your essential tool for daily planning and safety. See current temperature, hourly forecasts, and extended outlooks, plus crucial details like wind speed, UV index, and air quality.',
-      image: "/images/weather app.PNG",
+      image: "images/weather app.PNG",
       category: "web",
       technologies: [
         "html",
@@ -48,8 +54,7 @@ const Projects = () => {
       subtitle: "My portfolio website",
       description:
         "A responsive portfolio website showcasing my projects and skills.",
-      image:
-        "/images/pic 1.PNG",
+      image: "images/pic 1.PNG",
       category: "web",
       technologies: [
         "javascript",
@@ -71,8 +76,7 @@ const Projects = () => {
       subtitle: "my todo list",
       description:
         "A simple and efficient todo list application with drag-and-drop functionality.",
-      image:
-        "images/todo task.PNG",
+      image: "images/todo task.PNG",
       category: "web",
       technologies: [
         "java script",
@@ -88,11 +92,7 @@ const Projects = () => {
       featured: true,
       complexity: 50,
     },
-    
 
-
-     
-    
     //   id: 6,
     //   title: "AR Commerce Space",
     //   subtitle: "Spatial Shopping Experience",
